@@ -49,7 +49,7 @@ class URLBrowserResolver {
 	resolve(url) {
 		if (!this.resolving[url]) {
 			this.resolving[url] = new Promise((resolve, reject) => {
-				if (url.toLowerCase().indexOf('https://') === 0 || url.toLowerCase().indexOf('http://') === 0) {
+				if (url.toLowerCase().indexOf('https://') === 0 || url.toLowerCase().indexOf('http://') === 0 || url.toLowerCase().indexOf('capacitor://') === 0) {
 					fetchUrl(url).then(buffer => {
 						this.fs.writeFileSync(url, buffer);
 						resolve();
